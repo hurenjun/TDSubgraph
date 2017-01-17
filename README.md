@@ -1,7 +1,5 @@
 View under MarkDown mode for better representation.
 
-[TOC]
-
 # Basic Information
 * Project: *TDSubgraph*, i.e., *FIDES* in paper
 * dev: Renjun Hu 
@@ -36,7 +34,7 @@ View under MarkDown mode for better representation.
  * E.g.: -ecrate traffic-small.txt 0 10
  * Parameter description is the same to *run*
 
-# Data
+# Data Format
 * temporal graph 
  * each line consists of 4 integers "u,v,t,w"
  * u & v: starting and ending node of the edge
@@ -46,9 +44,9 @@ View under MarkDown mode for better representation.
  * each line consists of 2 integers "tb,te"
  * tb & te: beginning and ending timestamps of temporal subgraphs
 
-# Other files
+# Baseline & Data
 * baseline and synthetic data generator see *meden_1_0_1.zip*
-* KPCD groups and ground-truth see *KPCD.rar*
+* KPCD groups and ground-truth see *KPCD*
 * BJData: available in request
 * SynData: generate by synthetic data generator (sizes up to 50G)
 
