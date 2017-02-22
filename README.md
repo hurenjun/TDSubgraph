@@ -5,7 +5,7 @@ View under MarkDown mode for better representation.
 * dev: Renjun Hu 
 * homepage: https://hurenjun.github.io/
 * Reference: "Fast Computation of Dense Temporal Subgraphs." In *ICDE*, 2017.
-* 2017/7/17: reliease the first version of TDSubgraph
+* 2017/1/17: reliease the first version of TDSubgraph
 
 # Usage
 * **run: compute dense subgraph of temporal graph**
