@@ -9,11 +9,11 @@ View under MarkDown mode for better representation.
 
 # Usage
 * **run: compute dense subgraph of temporal graph**
- * E.g.: -run traffic-small.txt 0 10 10 1.0
- * traffic-small.txt: temporal graph
- * 0 & 10: beginning & ending timestamps of temporal graph (from 0 to 10 (including))
- * 10: number k of time intervals that FIDES considers
- * xi: smoothing factor (pg 4 in paper), 1.0 by default
+   * E.g.: -run traffic-small.txt 0 10 10 1.0
+   * traffic-small.txt: temporal graph
+   * 0 & 10: beginning & ending timestamps of temporal graph (from 0 to 10 (including))
+   * 10: number k of time intervals that FIDES considers
+   * xi: smoothing factor (pg 4 in paper), 1.0 by default
 
 * **runIntv: compute dense subgraph of temporal subgraphs given time intervals (interval.txt)**
  * E.g.: -runIntv traffic-small.txt 0 10 10 1.0
