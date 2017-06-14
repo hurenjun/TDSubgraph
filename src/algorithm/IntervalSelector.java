@@ -33,11 +33,11 @@ public class IntervalSelector {
 		nNode = tg.getNNode();
 		cden = tg.getCDensity(); // cohesive density
 		
-		for (int i = 0; i < T; i++) {
-			System.out.print(i + ":" + cden[i] + "\t");
-			if (i % 10 == 9) System.out.println();
-		}
-		System.out.println();
+//		for (int i = 0; i < T; i++) {
+//			System.out.print(i + ":" + cden[i] + "\t");
+//			if (i % 10 == 9) System.out.println();
+//		}
+//		System.out.println();
 		
 		xiBase = 0;	
 		for (int i = 0; i < T - 1; i++) {
