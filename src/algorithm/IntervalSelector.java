@@ -33,11 +33,11 @@ public class IntervalSelector {
 		nNode = tg.getNNode();
 		cden = tg.getCDensity(); // cohesive density
 		
-//		for (int i = 0; i < T; i++) {
-//			System.out.print(i + ":" + cden[i] + "\t");
-//			if (i % 10 == 9) System.out.println();
-//		}
-//		System.out.println();
+		for (int i = 0; i < T; i++) {
+			System.out.print(i + ":" + cden[i] + "\t");
+			if (i % 10 == 9) System.out.println();
+		}
+		System.out.println();
 		
 		xiBase = 0;	
 		for (int i = 0; i < T - 1; i++) {
@@ -73,6 +73,7 @@ public class IntervalSelector {
 			}
 		}
 		for (int i = 0; i < k / 2; i++) {
+			if (topK[i].equals(new Edge())) continue;
 			int base = 1;
 			int incTime = 0;
 			while (true) {
@@ -121,6 +122,7 @@ public class IntervalSelector {
 			}
 		}
 		for (int i = k / 2; i < k; i++) {
+			if (topK[i].equals(new Edge())) continue;
 			int base = 1, incTime = 0;
 			while (true) {
 				boolean change = false;
@@ -152,6 +154,16 @@ public class IntervalSelector {
 	
 	// select candidate intervals using local maximums
 	private static TreeSet<Edge> maxTInterval() {
+		if (T <= 10) {
+			TreeSet<Edge> intervals = new TreeSet<Edge>();
+			for (int i = 0; i < T; i++) {
+				for (int j = i; j < T; j++) {
+					intervals.add(new Edge(i, j));
+				}
+			}
+			return intervals;
+		}
+		
 		int[] l = new int[nNode];	// lower sides of maximums
 		int[] u = new int[nNode];	// upper sides of maximums
 		int h = 0;
@@ -226,6 +238,16 @@ public class IntervalSelector {
 	
 	// select candidate intervals using local minimums
 	private static TreeSet<Edge> minTInterval() {
+		if (T <= 10) {
+			TreeSet<Edge> intervals = new TreeSet<Edge>();
+			for (int i = 0; i < T; i++) {
+				for (int j = i; j < T; j++) {
+					intervals.add(new Edge(i, j));
+				}
+			}
+			return intervals;
+		}
+		
 		int[] l = new int[nNode];	// lower sides of maximums
 		int[] u = new int[nNode];	// upper sides of maximums
 		int h = 0;
@@ -287,14 +309,9 @@ public class IntervalSelector {
 	
 	private static void smooth(int l[], int u[], int h, int t, double xi) {
 		l[h] = t;
-		while (l[h] > 0 && Math.abs(cden[l[h]] - cden[t]) < xi) { l[h]--; }
+		while (l[h] > 0 && Math.abs(cden[l[h] - 1] - cden[t]) < xi) { l[h]--; }
 		u[h] = t;
-		while (u[h] < T - 1 && Math.abs(cden[u[h]] - cden[t]) < xi) { u[h]++; }
-	}
-	
-	private static void smooth(int l[], int u[], int h, double base, double xi) {
-		while (l[h] > 0 && Math.abs(cden[l[h]] - base) < xi) { l[h]--; }
-		while (u[h] < T - 1 && Math.abs(cden[u[h]] - base) < xi) { u[h]++; }
+		while (u[h] < T - 1 && Math.abs(cden[u[h] + 1] - cden[t]) < xi) { u[h]++; }
 	}
 	
 	private static void clear() {
