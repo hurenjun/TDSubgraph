@@ -7,6 +7,7 @@ View under MarkDown mode for better representation.
 * Reference: "Fast Computation of Dense Temporal Subgraphs." In *ICDE*, 2017.
 * 2017/1/17: reliease the first version of TDSubgraph
 * 2017/6/14: fix the bug in IntervalSelector that it throws an out-of-bounds exception when the temporal graph contains only single snapthot. The bug is reported by Yanyan Zhang from SFU.
+* 2017/10/16: release the beta version if FIDES in subdirectory 'FIDES_plus'. 
 
 # Usage
 * **run: compute dense subgraph of temporal graph**
